@@ -1,0 +1,160 @@
+\documentclass[12pt,oneside,letterpaper]{scrbook}
+
+\usepackage[margin=1in,includefoot,heightrounded]{geometry} % 1 inch margins including page numbers
+\usepackage{amsmath}
+
+\usepackage{chngcntr}
+\counterwithout{equation}{section} % undo numbering system provided by phstyle.cls
+% \counterwithin{equation}{chapter}  % implement desired numbering system
+
+
+\begin{document}
+	\chapter{Introduction}
+		In the control and protective circuits of complex electrical systems it is frequently necessary to make intricate interconnections of relay contacts and switches. Examples of these circuits occur in automatic telephone exchanges, industrial motor-control equipment, and in almost any circuits designed to perform complex operations automatically. In this paper a mathematical analysis of certain of the properties of such networks will be made. Particular attention will be given to the problem of network synthesis. Given certain characteristics, it is required to find a circuit incorporating these characteristics. The solution of this type of problem is not unique and methods of finding those particular circuits requiring the least number of relay contacts and switch blades will be studied. Methods will also be described for finding any number of circuits equivalent to a given circuit in all operating characteristics. It will be shown that several of the well-known theorems on impedance networks have roughly analogous theorems in relay circuits. Notable among these are the delta-wye and star-mesh transformations, and the duality theorem.
+
+		The method of attack on these problems may be described briefly as follows: any circuit is represented by a set of equations, the terms of the equations corresponding to the various relays and switches in the circuit. A calculus is developed for manipulating these equations by simple mathematical processes, most of which are similar to ordinary algebraic algorithms. This calculus is shown to be exactly analogous to the calculus of propositions used in the symbolic study of logic. For the synthesis problem the desired characteristics are first written as a system of equations, and the equations are then manipulated into the form representing the simplest circuit. The circuit may then be immediately drawn from the equations. By this method it is always possible to find the simplest circuit containing only series and parallel connections, and in some cases the simplest circuit containing any type of connection.
+
+
+		Our notation is taken chiefly from symbolic logic. Of the many systems in common use we have chosen the one which seems simplest and most suggestive for our interpretation. Some of our phraseology, such as node, mesh, delta, wye, etc., is borrowed from ordinary network theory for simple concepts in switching circuits.
+
+	\chapter{Series-Parallel Two-Terminal Circuits}
+		\section{Fundamental Definitions and Postulates}
+		We shall limit our treatment of circuits containing only relay contacts and switches, and therefore at any given time the circuit between any two terminals must be either open (infinite impedance) or closed (zero impedance). Let us associate a symbol $X_{ab}$ or more simply $X$, with the terminals $a$ and $b$. This variable, a function of time, will be called the hindrance of the two-terminal circuit $a -b$. The symbol $0$ (zero) will be used to represent the hindrance of a closed circuit, and the symbol $1$ (unity) to represent $1$ and when closed $X_{ab} = 0$. Two hindrances $X_{ab}$ and $X_{cd}$ will be said to be equal if whenever the circuit $a - b$ is open, the circuit $c - d$ is open, and whenever $a - b$ is closed, $c - d$ is closed. Now let the symbol $+$ (plus) be defined to mean the series connection of the two-terminal circuits whose hindrances are added together. Thus $X_{ab} + X_{cd}$ is the hindrance of the circuit $a - d$ when band c are connected together. Similarly the product of two hindrances $X_{ab} \cdot X_{cd}$ or more briefly $X_{ab} X_{cd}$ will be defined to mean the hindrance o f the circuit formed by connecting the circuits $a - b$ and $c - d$ in parallel. A relay contact or switch will be represented in a circuit by the symbol in Figure 1, the letter being the corresponding hindrance function. Figure 2 shows the interpretation of the plus sign and Figure 3 the multiplication sign. This choice of symbols makes the manipulation of hindrances very similar to ordinary numerical algebra.
+		% Figure 1, Figure 2, Figure 3	
+		It is evident that with the above definitions the following postulates will hold:
+		\begin{center}
+			\begin{tabular}{l l l p{4in}}
+				1.	& a.& $0 \cdot 0 = 0$ 	& A closed circuit in parallel with a closed circuit is a closed circuit.\\
+					& b.& $1 + 1 = 1$		& An open circuit in series with an open circuit is an
+					open circuit. \\
+				2.	& a.& $1 + 0 = 0 + 1 = 1$ 	& An open circuit in series with a closed circuit in either order (i.e., whether the open circuit is to the right or left of the closed circuit) is an open circuit.\\
+					& b.& $0\cdot1 = 1 \cdot 0 = 0$		& A closed circuit in parallel with an open circuit in either order is a closed circuit. \\
+				3.	& a.& $0+0=0$ 	& A closed circuit in series with a closed circuit is a closed circuit.\\
+					& b.& $1\cdot1=1$		& An open circuit in series with a closed circuit is a closed circuit. \\
+				4.	&	&					& At any given time either $X=0$ or $X=1$.
+			\end{tabular}
+		\end{center}
+		These are sufficient to develop all the theorems which will be used in connection with circuits containing only series and parallel connections. The postulates are arranged in pairs to emphasize a duality relationship between the operations of addition and multiplication and the quantities zero and one. Thus if in any of the a. postulates the zero's are replaced by one's and the multiplications by additions and vice versa, the corresponding b. postulate will result. This fact is of great importance. It gives each theorem a dual theorem, it being necessary to prove only one to establish both. The only one of these postulates which differs from ordinary algebra is 1.b. However, this enables great simplifications in the manipulation of these symbols.
+
+		\section{Theorems}
+		In this section a number of theorems governing the combination of hindrances will be given. In as much as any of the theorems may be proved by a very simple process, the proofs will not be given except for an illustrative example. The method of proof is that of "perfect induction," i.e., the verification of the theorem for all possible cases. Since by Postulate 4 each variable is limited to the values $0$ and $1$, this is a simple maUer. Some of the theorems may be proved more elegantly by recourse to previous theorems, but the method of perfect induction is so universal that it is probably to be preferred.
+
+		\begin{subequations}
+			\begin{align}
+				X + Y &= Y + X \\
+				XY &= YX
+			\end{align}
+		\end{subequations}
+		\begin{subequations}
+			\begin{align}
+				X + (Y + Z) &= (X + Y) + Z  \\
+				X(YZ) &= (XY)Z
+			\end{align}
+		\end{subequations}
+		\begin{subequations}
+			\begin{align}
+				X(Y + Z) &= XY + XZ  \\
+				X + YZ &= (X + Y)(X + Z)
+			\end{align}
+		\end{subequations}
+		\begin{subequations}
+			\begin{align}
+				1\cdot X &= X  \\
+				0+X&=X
+			\end{align}
+		\end{subequations}
+		\begin{subequations}
+			\begin{align}
+				1+X&=1  \\
+				0\cdot X &= 0
+			\end{align}
+		\end{subequations}
+
+		For example, to prove Theorem 4a, note that $X$ is either $0$ or $1$. If it is $0$, the theorem follows from Postulate 2b; if 1, it follows from Postulate 3b.
+
+		We shall now define a new operation to be called negation. The negative of a hinderance $X$ will equal to 1 when $X$ equals be written $X'$ and is defined as a variable which is 0 and equal to 0 when X equals 1.
+		\begin{subequations}
+			\begin{align}
+				X + X' &= 1 \\
+				XX' &= 0
+			\end{align}
+		\end{subequations}
+		\begin{subequations}
+			\begin{align}
+				0' &=1  \\
+				1' &=0
+			\end{align}
+		\end{subequations}
+		\begin{equation}
+			(X')' = X
+		\end{equation}
+
+		\section{Analogue with the Calculus of Prepositions}
+		% will have to fix the logic ref
+		We are now in a position to demonstrate the equivalence of this calculus with certain elementary parts of the calculus of propositions. The algebra of logic (1), (2), (3), originated by George Boole, is a symbolic method of investigating logical relationships. The symbols of Boolean algebra admit of two logical interpretations. If interpreted in terms of classes, the variables are not limited to the two possible values 0 and 1. This interpretation is known as the algebra of classes. If, however, the terms are taken to represent propositions, we have the calculus of propositions in which variables are limited to the values 0 and 1\footnote{This refers only to the classical theory of the Calculus of Propositions. Recently some work has been done with logical systems in which propositions may have more than two "truth values."}, as are the hindrance functions above. Usually the two subjects are developed simultaneously from the same set of postulates, except for the addition in the case of the calculus of propositions of a postulate equivalent to Postulate 4 above. E. V. Huntington (4) gives the following set of postulates for symbolic logic:
+
+		\begin{enumerate}
+			\item The class $K$ contains at least two distinct elements.
+			\item If $a$ and $b$ are in the class $K$ then $a + b$ is in the class $K$.
+			\item $a + b = b + a$
+			\item $(a+b)+ c=a+(b+ c)$
+			\item $a+a=a$
+			\item ab+ab' =a where $ab$ is defined as $(a' +b')'$
+		\end{enumerate}
+
+		If we let the class $K$ be the class consisting of the two elements 0 and 1, then these postulates follow from those given in the first section. Also Postulates 1, 2, and 3 given there can be deduced from Huntington's postulates. Adding 4 and restricting our discussion to the calculus of propositions, it is evident that a perfect analogy exists between the calculus for switching circuits and this branch of symbolic logic.\footnote{This analogy may also be seen from a slightly different viewpoint. Instead of associating $X_{ab}$ directly with the circuit $a-b$ let $X_{ab}$ represent the \textit{proposition} that the circuit $a -b$ is open. Then all the symbols are directly interpreted as propositions and the operations of addition and multiplication will be seen to represent series and parallel connections.} The two interpretations of the symbols are shown in Table 1.
+
+		Due to this analogy any theorem of the calculus of propositions is also a true theorem if interpreted in terms of relay circuits. The remaining theorems in this section are taken directly from this field.
+		\\
+		
+		De Morgan's theorem:
+		\begin{subequations}
+			\begin{align}
+				(X+ Y+Z \ldots)' &=X'\cdot Y'\cdot Z'\ldots  \\
+				(X\cdot Y \cdot Z\ldots)' &=X' + Y' +Z'+\ldots
+			\end{align}
+		\end{subequations}
+		This theorem gives the negative of a sum or product in terms of the negatives of the summands or factors. It may be easily verified for two terms by substituting all possible values and then extended to any number $n$ of variables by mathematical induction.
+
+		A function of certain variables $X_1, X_2, \ldots, X_n$ is any expression formed from the variables with the operations of addition, multiplication, and negation. The notation $f(X_1, X_2, \ldots, X_n)$ will be used to represent a function. Thus we might have $f(X, Y, Z) =XY + X' (Y' + Z')$. In infinitesimal calculus it is shown that any function (providing it is continuous and all derivatives are continuous) may be expanded in a Taylor series. A somewhat similar expansion is possible in the calculus of propositions. To develop the series expansion of functions first note the following equations:
+
+		\begin{subequations}
+			\begin{align}
+				f(X_1, X_2, \ldots, X_n) &= X_1 \cdot f(1, X_2, \ldots, X_n) + X_1' \cdot f(0, X_2, \ldots, X_n)\\
+				f(X_1, \ldots, X_n) &= [f(0, X_2, \ldots, X_n) + X_1] \cdot [f(1, X_2, \ldots, X_n) + X_1']
+			\end{align}
+		\end{subequations}
+
+		These reduce to identities if we let $X_1$ equal either 0 or 1. In these equations the function $f$ is said to be expanded about $X_1$ The coefficients of $X_1$ and $X_1'$ in 1Oa are functions of the $(n - 1)$ variables $X_2 \ldots X_n$ and may thus be expanded about any of these variables in the same manner. The additive terms in 10b also may be expanded in this manner. Expanding about $X_2$ we have:
+
+		\begin{subequations}
+			\begin{align}
+				\begin{split}
+					f(X_1 \ldots, X_n) &= X_1 X_2 f(1, 1, X_3, \ldots, X_n) + X_1 X_1' f(1,0, X_3, \ldots, X_n)\\
+					&+ X_1'X_2f(0,1,X_3,\ldots,X_n) + X_1' X_2' f(0,0,X_3,\ldots,X_n)
+				\end{split}\\
+				\begin{split}
+					f(X_1, \ldots, X_n) &= [X_1 + X_2 + f(0,0,X_3,\ldots,X_n)]\cdot [X_1 + X_2' + f(0,1,X_3,\ldots,X_n)]\\
+					&\cdot [X_1' + X_2 + f(1,0,X_3,\ldots,X_n)]\cdot [X_1' + X_2' + f(1,1,X_3,\ldots,X_n)]	
+				\end{split}
+			\end{align}
+		\end{subequations}
+
+		Continuing this process $n$ times we will arrive at the complete series expansion having the form:
+
+		\begin{subequations}
+			\begin{align}
+				\begin{split}
+					f(X_1 \ldots, X_n) &= f(1, 1, 1, \ldots, 1) X_1 X_2 \ldots X_n +  f(0,1,1, \ldots, 1) X_1' X_2' \ldots X_n \\
+					&+ \cdots + f(0,0,0,\ldots,0)X_1'X_2'\ldots X_n'
+				\end{split}\\
+				\begin{split}
+					f(X_1, \ldots, X_n) &= [X_1 + X_2 + \cdots + X_n + f(0,0,0,\ldots,0)]\cdot \ldots \\
+					&\cdot[X_1 + X_2' \cdots + X_n' + f(1,1 \ldots 1)]	
+				\end{split}
+			\end{align}
+		\end{subequations}
+
+
+
+\end{document}
